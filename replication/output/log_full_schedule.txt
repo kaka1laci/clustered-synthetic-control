@@ -1,0 +1,60 @@
+gsynth version: 1.2.1 
+[   0.1s] === schedule connections: N1 = 15, N0 = 530 ===
+[   0.2s] DID   point estimate 0.0270
+[   0.5s] DID   placebo SE 0.0064
+[   7.0s] SDID  point estimate 0.0177
+[ 786.2s] SDID  placebo SE 0.0057
+[ 863.1s] SC    0.0161 (placebo SE 0.005)
+Cross-validating ... 
+ r = 0; sigma2 = 0.00243; IC = -5.96890; PC = 0.00242; MSPE = 0.00233
+ r = 1; sigma2 = 0.00182; IC = -6.18607; PC = 0.00186; MSPE = 0.00166
+ r = 2; sigma2 = 0.00175; IC = -6.15661; PC = 0.00183; MSPE = 0.00161
+ r = 3; sigma2 = 0.00168; IC = -6.12324; PC = 0.00180; MSPE = 0.00156*
+ r = 4; sigma2 = 0.00163; IC = -6.08713; PC = 0.00178; MSPE = 0.00161
+ r = 5; sigma2 = 0.00158; IC = -6.04357; PC = 0.00177; MSPE = 0.00159
+
+ r* = 3
+
+Simulating errors .............Bootstrapping ...
+..........[ 953.9s] Gsynth 0.0127 (SE 0.0062), r = 3
+[ 953.9s] all estimators done
+
+ connection estimator                   variant    est     se paper_est
+   schedule   Average                      diff 0.0264 0.0074     0.026
+   schedule       DID                  synthdid 0.0270 0.0064     0.027
+   schedule    Market         Market_alpha:diff 0.0270 0.0070     0.024
+   schedule    Market Market_alpha:treated_only 0.0244 0.0073     0.024
+   schedule    Market               Market:diff 0.0264 0.0070     0.024
+   schedule    Market       Market:treated_only 0.0243 0.0070     0.024
+   schedule      CAPM            CAPM_w280:diff 0.0143 0.0065     0.016
+   schedule      CAPM    CAPM_w280:treated_only 0.0155 0.0065     0.016
+   schedule      CAPM                 CAPM:diff 0.0144 0.0065     0.016
+   schedule      CAPM         CAPM:treated_only 0.0154 0.0065     0.016
+   schedule      FF3F          FF3F_day0sp:diff 0.0139 0.0066     0.014
+   schedule      FF3F  FF3F_day0sp:treated_only 0.0132 0.0063     0.014
+   schedule      FF3F                 FF3F:diff 0.0143 0.0066     0.014
+   schedule      FF3F         FF3F:treated_only 0.0141 0.0063     0.014
+   schedule        SC                     sc_qp 0.0161 0.0050     0.016
+   schedule      SDID                  synthdid 0.0177 0.0057     0.018
+   schedule    Gsynth  gsynth force=unit r_cv=3 0.0127 0.0062     0.012
+ paper_se     gap
+    0.007  0.0004
+    0.005  0.0000
+    0.007  0.0030
+    0.007  0.0004
+    0.007  0.0024
+    0.007  0.0003
+    0.007 -0.0017
+    0.007 -0.0005
+    0.007 -0.0016
+    0.007 -0.0006
+    0.006 -0.0001
+    0.006 -0.0008
+    0.006  0.0003
+    0.006  0.0001
+    0.005  0.0001
+    0.005 -0.0003
+    0.006  0.0007
+
+Saved replication/output/table2_panelA_schedule.csv
+EXIT 0

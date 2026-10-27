@@ -1,0 +1,2 @@
+synthdid sc_estimate (schedule, Panel B): 0.0074 | donors w>0.01: 25 | 32 s
+EXIT 0

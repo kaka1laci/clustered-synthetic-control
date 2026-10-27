@@ -1,0 +1,30 @@
+gsynth version: 1.2.1 
+force=unit    CV=FALSE r_in=1     -> r=1  ATT=0.0201  (0s)
+force=unit    CV=FALSE r_in=2     -> r=2  ATT=0.0194  (0s)
+force=unit    CV=FALSE r_in=3     -> r=3  ATT=0.0127  (0s)
+force=two-way CV=FALSE r_in=0     -> r=0  ATT=0.0270  (0s)
+force=two-way CV=FALSE r_in=1     -> r=1  ATT=0.0202  (0s)
+force=two-way CV=FALSE r_in=2     -> r=2  ATT=0.0201  (0s)
+Cross-validating ... 
+ r = 0; sigma2 = 0.00208; IC = -6.10394; PC = 0.00207; MSPE = 0.00175
+ r = 1; sigma2 = 0.00181; IC = -6.17157; PC = 0.00184; MSPE = 0.00167
+ r = 2; sigma2 = 0.00174; IC = -6.13969; PC = 0.00182; MSPE = 0.00160
+ r = 3; sigma2 = 0.00168; IC = -6.10609; PC = 0.00179; MSPE = 0.00155*
+ r = 4; sigma2 = 0.00162; IC = -6.07034; PC = 0.00177; MSPE = 0.00161
+ r = 5; sigma2 = 0.00157; IC = -6.02710; PC = 0.00176; MSPE = 0.00157
+
+ r* = 3
+
+force=two-way CV=TRUE  r_in=0:5   -> r=3  ATT=0.0125  (1s)
+Cross-validating ... 
+ r = 0; sigma2 = 0.00243; IC = -5.96890; PC = 0.00242; MSPE = 0.00233
+ r = 1; sigma2 = 0.00182; IC = -6.18607; PC = 0.00186; MSPE = 0.00166
+ r = 2; sigma2 = 0.00175; IC = -6.15661; PC = 0.00183; MSPE = 0.00161
+ r = 3; sigma2 = 0.00168; IC = -6.12324; PC = 0.00180; MSPE = 0.00156*
+ r = 4; sigma2 = 0.00163; IC = -6.08713; PC = 0.00178; MSPE = 0.00161
+ r = 5; sigma2 = 0.00158; IC = -6.04357; PC = 0.00177; MSPE = 0.00159
+
+ r* = 3
+
+force=unit    CV=TRUE  r_in=0:5   -> r=3  ATT=0.0127  (1s)
+EXIT 0

@@ -1,0 +1,60 @@
+gsynth version: 1.2.1 
+[   0.1s] === newyork connections: N1 = 38, N0 = 507 ===
+[   0.2s] DID   point estimate 0.0203
+[   0.5s] DID   placebo SE 0.0037
+[   7.8s] SDID  point estimate 0.0121
+[ 890.6s] SDID  placebo SE 0.0031
+[ 939.0s] SC    0.0094 (placebo SE 0.0032)
+Cross-validating ... 
+ r = 0; sigma2 = 0.00243; IC = -5.97040; PC = 0.00242; MSPE = 0.00224
+ r = 1; sigma2 = 0.00184; IC = -6.17824; PC = 0.00188; MSPE = 0.00151*
+ r = 2; sigma2 = 0.00175; IC = -6.15293; PC = 0.00183; MSPE = 0.00152
+ r = 3; sigma2 = 0.00169; IC = -6.11973; PC = 0.00181; MSPE = 0.00150*
+ r = 4; sigma2 = 0.00163; IC = -6.08367; PC = 0.00179; MSPE = 0.00152
+ r = 5; sigma2 = 0.00158; IC = -6.04472; PC = 0.00177; MSPE = 0.00156
+
+ r* = 3
+
+Simulating errors .............Bootstrapping ...
+..........[1007.5s] Gsynth 0.0098 (SE 0.0038), r = 3
+[1007.5s] all estimators done
+
+ connection estimator                   variant    est     se paper_est
+    newyork   Average                      diff 0.0194 0.0048     0.019
+    newyork       DID                  synthdid 0.0203 0.0037     0.020
+    newyork    Market         Market_alpha:diff 0.0203 0.0045     0.017
+    newyork    Market Market_alpha:treated_only 0.0170 0.0049     0.017
+    newyork    Market               Market:diff 0.0194 0.0045     0.017
+    newyork    Market       Market:treated_only 0.0167 0.0049     0.017
+    newyork      CAPM            CAPM_w280:diff 0.0100 0.0042     0.011
+    newyork      CAPM    CAPM_w280:treated_only 0.0109 0.0041     0.011
+    newyork      CAPM                 CAPM:diff 0.0100 0.0042     0.011
+    newyork      CAPM         CAPM:treated_only 0.0108 0.0041     0.011
+    newyork      FF3F          FF3F_day0sp:diff 0.0096 0.0043     0.009
+    newyork      FF3F  FF3F_day0sp:treated_only 0.0086 0.0041     0.009
+    newyork      FF3F                 FF3F:diff 0.0099 0.0043     0.009
+    newyork      FF3F         FF3F:treated_only 0.0094 0.0041     0.009
+    newyork        SC                     sc_qp 0.0094 0.0032     0.009
+    newyork      SDID                  synthdid 0.0121 0.0031     0.012
+    newyork    Gsynth  gsynth force=unit r_cv=3 0.0098 0.0038     0.009
+ paper_se     gap
+    0.005  0.0004
+    0.004  0.0003
+    0.004  0.0033
+    0.004  0.0000
+    0.004  0.0024
+    0.004 -0.0003
+    0.004 -0.0010
+    0.004 -0.0001
+    0.004 -0.0010
+    0.004 -0.0002
+    0.004  0.0006
+    0.004 -0.0004
+    0.004  0.0009
+    0.004  0.0004
+    0.003  0.0004
+    0.003  0.0001
+    0.004  0.0008
+
+Saved replication/output/table2_panelA_newyork.csv
+EXIT 0

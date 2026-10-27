@@ -1,0 +1,6 @@
+"connection","estimator","variant","est","se","note","paper_est","paper_se","gap","panel"
+"newyork","Average","diff",0.0105721755746417,0.00548116842408718,"two-sample t-test, stacked firm-days",0.011,0.005,-0.000427824425358308,"B"
+"newyork","DID","synthdid",0.0104950729607304,0.00487841646313871,"synthdid pkg, placebo SE (100 reps)",0.011,0.004,-0.000504927039269642,"B"
+"newyork","SC","sc_qp",0.00201066684023546,0.00389562247168861,"synthdid sc objective via quadprog, placebo SE (100 reps)",0.004,0.004,-0.00198933315976454,"B"
+"newyork","SDID","synthdid",0.00075900413300745,0.00376759289623131,"synthdid pkg, placebo SE (100 reps)",0.003,0.003,-0.00224099586699255,"B"
+"newyork","Gsynth","gsynth force=unit r_cv=2",-0.00289059392750216,0.0040899266569745,"gsynth pkg, parametric bootstrap (1000)",0.001,0.004,-0.00389059392750216,"B"

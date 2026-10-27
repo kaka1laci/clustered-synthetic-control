@@ -1,0 +1,5 @@
+[     0s] scenarios strong_blur | reps 1-3 | pf_reps 1 | grid full | sigma_e 1.209 | sd_smb 0.590
+[   627s] strong_blur rep 1: sc/avg 0s, csc_ff3/avg 0s, jsc1_ff3/avg 251s, csc_svd/avg 0s, jsc1_svd/avg 251s, sc/pf 4s, csc_ff3/pf 0s, jsc1_ff3/pf 111s, jsc2_ff3_c0.1/pf 3s, jsc2_ff3_c1/pf 3s, jsc2_ff3_c10/pf 3s
+[  1079s] strong_blur rep 2: sc/avg 0s, csc_ff3/avg 0s, jsc1_ff3/avg 252s, csc_svd/avg 0s, jsc1_svd/avg 199s
+[  3806s] strong_blur rep 3: sc/avg 0s, csc_ff3/avg 0s, jsc1_ff3/avg 2439s, csc_svd/avg 0s, jsc1_svd/avg 288s
+[  3806s] saved replication/output/jointsc_sim_pilot.rds

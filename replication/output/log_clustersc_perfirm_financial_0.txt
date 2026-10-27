@@ -1,0 +1,8 @@
+[     1s] clusters r = 10: k = 3, sizes 1562/2099/376
+[   651s] placebo financial: 10 / 50
+[  1299s] placebo financial: 20 / 50
+[  2029s] placebo financial: 30 / 50
+[  2715s] placebo financial: 40 / 50
+[  3363s] placebo financial: 50 / 50
+[  3363s] saved replication/output/clustersc_perfirm_financial_0.rds
+EXIT 0

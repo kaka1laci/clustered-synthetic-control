@@ -1,0 +1,35 @@
+[     2s] 4037 untreated firms (742 financial) | FF3 clusters k = 4, sizes 391/1522/526/1598, financial share 0.59/0.22/0.04/0.09 | SVD clusters k = 3
+[   858s] real schedule (12 firms): sc/avg 6s, csc_ff3/avg 2s, jsc1_ff3/avg 153s, csc_svd/avg 6s, jsc1_svd/avg 95s, sc/pf 39s, csc_ff3/pf 18s, jsc1_ff3/pf 509s, jsc2_ff3/pf 27s
+[  1406s] real personal (7 firms): sc/avg 5s, csc_ff3/avg 0s, jsc1_ff3/avg 134s, csc_svd/avg 2s, jsc1_svd/avg 129s, sc/pf 17s, csc_ff3/pf 7s, jsc1_ff3/pf 239s, jsc2_ff3/pf 13s
+[  3121s] real newyork (32 firms): sc/avg 13s, csc_ff3/avg 6s, jsc1_ff3/avg 193s, csc_svd/avg 8s, jsc1_svd/avg 188s, sc/pf 105s, csc_ff3/pf 45s, jsc1_ff3/pf 1094s, jsc2_ff3/pf 63s
+[  3821s] placebo all draw 1: sc/avg 29s, csc_ff3/avg 5s, jsc1_ff3/avg 89s, csc_svd/avg 4s, jsc1_svd/avg 93s, sc/pf 44s, csc_ff3/pf 16s, jsc1_ff3/pf 401s, jsc2_ff3/pf 18s
+[  4665s] placebo all draw 2: sc/avg 12s, csc_ff3/avg 3s, jsc1_ff3/avg 131s, csc_svd/avg 5s, jsc1_svd/avg 139s, sc/pf 27s, csc_ff3/pf 14s, jsc1_ff3/pf 503s, jsc2_ff3/pf 11s
+[  5163s] placebo all draw 3: sc/avg 5s, csc_ff3/avg 3s, jsc1_ff3/avg 130s, csc_svd/avg 5s, jsc1_svd/avg 41s, sc/pf 32s, csc_ff3/pf 9s, jsc1_ff3/pf 264s, jsc2_ff3/pf 9s
+[  5665s] placebo all draw 4: sc/avg 8s, csc_ff3/avg 3s, jsc1_ff3/avg 69s, csc_svd/avg 3s, jsc1_svd/avg 128s, sc/pf 28s, csc_ff3/pf 14s, jsc1_ff3/pf 229s, jsc2_ff3/pf 20s
+[  6716s] placebo all draw 5: sc/avg 20s, csc_ff3/avg 4s, jsc1_ff3/avg 58s, csc_svd/avg 9s, jsc1_svd/avg 75s, sc/pf 41s, csc_ff3/pf 18s, jsc1_ff3/pf 794s, jsc2_ff3/pf 32s
+[  7932s] placebo all draw 6: sc/avg 10s, csc_ff3/avg 5s, jsc1_ff3/avg 131s, csc_svd/avg 7s, jsc1_svd/avg 83s, sc/pf 92s, csc_ff3/pf 31s, jsc1_ff3/pf 819s, jsc2_ff3/pf 36s
+[  9352s] placebo all draw 7: sc/avg 24s, csc_ff3/avg 12s, jsc1_ff3/avg 118s, csc_svd/avg 9s, jsc1_svd/avg 170s, sc/pf 71s, csc_ff3/pf 33s, jsc1_ff3/pf 953s, jsc2_ff3/pf 31s
+[ 10317s] placebo all draw 8: sc/avg 49s, csc_ff3/avg 5s, jsc1_ff3/avg 100s, csc_svd/avg 9s, jsc1_svd/avg 96s, sc/pf 47s, csc_ff3/pf 18s, jsc1_ff3/pf 624s, jsc2_ff3/pf 17s
+[ 10970s] placebo all draw 9: sc/avg 8s, csc_ff3/avg 2s, jsc1_ff3/avg 138s, csc_svd/avg 6s, jsc1_svd/avg 133s, sc/pf 33s, csc_ff3/pf 16s, jsc1_ff3/pf 297s, jsc2_ff3/pf 19s
+[ 17128s] placebo all draw 10: sc/avg 21s, csc_ff3/avg 6s, jsc1_ff3/avg 89s, csc_svd/avg 8s, jsc1_svd/avg 95s, sc/pf 1004s, csc_ff3/pf 19s, jsc1_ff3/pf 4907s, jsc2_ff3/pf 9s
+[ 17349s] placebo all draw 11: sc/avg 9s, csc_ff3/avg 3s, jsc1_ff3/avg 131s, csc_svd/avg 5s, jsc1_svd/avg 72s
+[ 17569s] placebo all draw 12: sc/avg 5s, csc_ff3/avg 2s, jsc1_ff3/avg 75s, csc_svd/avg 2s, jsc1_svd/avg 135s
+[ 17820s] placebo all draw 13: sc/avg 14s, csc_ff3/avg 6s, jsc1_ff3/avg 146s, csc_svd/avg 6s, jsc1_svd/avg 80s
+[ 18015s] placebo all draw 14: sc/avg 8s, csc_ff3/avg 4s, jsc1_ff3/avg 97s, csc_svd/avg 6s, jsc1_svd/avg 79s
+[ 18268s] placebo all draw 15: sc/avg 7s, csc_ff3/avg 3s, jsc1_ff3/avg 100s, csc_svd/avg 3s, jsc1_svd/avg 139s
+[ 18587s] placebo all draw 16: sc/avg 28s, csc_ff3/avg 9s, jsc1_ff3/avg 136s, csc_svd/avg 8s, jsc1_svd/avg 137s
+[ 18818s] placebo all draw 17: sc/avg 8s, csc_ff3/avg 3s, jsc1_ff3/avg 141s, csc_svd/avg 3s, jsc1_svd/avg 76s
+[ 19178s] placebo all draw 18: sc/avg 24s, csc_ff3/avg 8s, jsc1_ff3/avg 183s, csc_svd/avg 9s, jsc1_svd/avg 135s
+[ 19412s] placebo all draw 19: sc/avg 15s, csc_ff3/avg 7s, jsc1_ff3/avg 94s, csc_svd/avg 9s, jsc1_svd/avg 109s
+[ 19761s] placebo all draw 20: sc/avg 27s, csc_ff3/avg 4s, jsc1_ff3/avg 145s, csc_svd/avg 8s, jsc1_svd/avg 165s
+[ 19996s] placebo all draw 21: sc/avg 27s, csc_ff3/avg 7s, jsc1_ff3/avg 106s, csc_svd/avg 5s, jsc1_svd/avg 91s
+[ 20260s] placebo all draw 22: sc/avg 16s, csc_ff3/avg 3s, jsc1_ff3/avg 152s, csc_svd/avg 10s, jsc1_svd/avg 83s
+[ 20585s] placebo all draw 23: sc/avg 11s, csc_ff3/avg 6s, jsc1_ff3/avg 158s, csc_svd/avg 7s, jsc1_svd/avg 142s
+[ 20785s] placebo all draw 24: sc/avg 16s, csc_ff3/avg 7s, jsc1_ff3/avg 85s, csc_svd/avg 12s, jsc1_svd/avg 81s
+[ 21064s] placebo all draw 25: sc/avg 27s, csc_ff3/avg 4s, jsc1_ff3/avg 150s, csc_svd/avg 7s, jsc1_svd/avg 91s
+[ 21287s] placebo all draw 26: sc/avg 16s, csc_ff3/avg 2s, jsc1_ff3/avg 111s, csc_svd/avg 8s, jsc1_svd/avg 85s
+[ 21478s] placebo all draw 27: sc/avg 17s, csc_ff3/avg 5s, jsc1_ff3/avg 88s, csc_svd/avg 6s, jsc1_svd/avg 75s
+[ 21894s] placebo all draw 28: sc/avg 21s, csc_ff3/avg 7s, jsc1_ff3/avg 191s, csc_svd/avg 8s, jsc1_svd/avg 190s
+[ 22190s] placebo all draw 29: sc/avg 17s, csc_ff3/avg 4s, jsc1_ff3/avg 135s, csc_svd/avg 6s, jsc1_svd/avg 135s
+[ 22470s] placebo all draw 30: sc/avg 8s, csc_ff3/avg 3s, jsc1_ff3/avg 132s, csc_svd/avg 4s, jsc1_svd/avg 133s
+[ 22470s] saved replication/output/jointsc_geithner_all.rds

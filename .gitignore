@@ -1,0 +1,29 @@
+# macOS
+.DS_Store
+
+# Local audio files
+New Recording 25/
+New Recording 25.m4a
+New Recording 25.zip
+*.m4a
+
+# Papers (copyrighted PDFs)
+*.pdf
+
+# Raw data: CRSP is licensed (do not distribute); Kermani / Fama-French files are third-party.
+# Rebuild with the scripts in replication/src (see replication/README.md).
+replication/data/raw/
+
+# Locally built R packages (gsynth 1.2.1, lfe)
+replication/rlib/
+
+# Large intermediate outputs (regenerate with the scripts)
+replication/output/*.rds
+
+# Solver logs
+gurobi.log
+
+# Local notes (not part of the code): Markdown files in the project root except README.md, and local drafts under docs/
+/*.md
+!/README.md
+docs/superpowers/

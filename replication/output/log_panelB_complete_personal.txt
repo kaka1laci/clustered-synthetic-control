@@ -1,0 +1,37 @@
+gsynth version: 1.2.1 
+[   0.0s] Panel B: 4078 firms x 237 days
+[   0.1s] === personal connections: N1 = 7, N0 = 4071 ===
+[   0.4s] DID   point estimate 0.0279
+[   3.1s] DID   placebo SE 0.0095
+[  68.2s] SDID  point estimate 0.0078
+[33494.2s] SDID  placebo SE 0.0079
+[34108.6s] SC    -0.0003 (placebo SE 0.0082)
+Cross-validating ... 
+ r = 0; sigma2 = 0.00252; IC = -5.92715; PC = 0.00250; MSPE = 0.00476
+ r = 1; sigma2 = 0.00205; IC = -6.06829; PC = 0.00209; MSPE = 0.00342
+ r = 2; sigma2 = 0.00199; IC = -6.03918; PC = 0.00206; MSPE = 0.00336*
+ r = 3; sigma2 = 0.00194; IC = -6.00428; PC = 0.00204; MSPE = 0.00337
+ r = 4; sigma2 = 0.00189; IC = -5.96899; PC = 0.00203; MSPE = 0.00343
+ r = 5; sigma2 = 0.00185; IC = -5.92767; PC = 0.00202; MSPE = 0.00343
+
+ r* = 2
+
+Simulating errors .............Bootstrapping ...
+..........[34468.9s] Gsynth 0.0045 (SE 0.0091), r = 2
+[34468.9s] all estimators done
+
+ connection estimator                  variant     est     se paper_est
+   personal   Average                     diff  0.0274 0.0117     0.020
+   personal       DID                 synthdid  0.0279 0.0095     0.021
+   personal        SC                    sc_qp -0.0003 0.0082    -0.003
+   personal      SDID                 synthdid  0.0078 0.0079     0.006
+   personal    Gsynth gsynth force=unit r_cv=2  0.0045 0.0091     0.003
+ paper_se    gap
+    0.010 0.0074
+    0.006 0.0069
+    0.005 0.0027
+    0.005 0.0018
+    0.008 0.0015
+
+Saved replication/output/table2_panelB_complete_personal.csv
+EXIT 0

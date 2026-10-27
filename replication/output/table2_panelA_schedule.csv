@@ -1,0 +1,18 @@
+"connection","estimator","variant","est","se","note","paper_est","paper_se","gap"
+"schedule","Average","diff",0.0263754531047267,0.00743129484963517,"two-sample t-test, stacked firm-days",0.026,0.007,0.00037545310472669
+"schedule","DID","synthdid",0.0269999586248096,0.00638858899897527,"synthdid pkg, placebo SE (100 reps)",0.027,0.005,-4.13751903745319e-08
+"schedule","Market","Market_alpha:diff",0.0269999586248096,0.00699610217277898,"R - alpha_hat - R_m",0.024,0.007,0.00299995862480961
+"schedule","Market","Market_alpha:treated_only",0.0244274500009874,0.00728413858570017,"R - alpha_hat - R_m",0.024,0.007,0.000427450000987449
+"schedule","Market","Market:diff",0.0263754531047266,0.00698885040008779,"R - R_m (beta = 1, no alpha)",0.024,0.007,0.0023754531047266
+"schedule","Market","Market:treated_only",0.0243111400402009,0.00704055156080674,"R - R_m (beta = 1, no alpha)",0.024,0.007,0.000311140040200945
+"schedule","CAPM","CAPM_w280:diff",0.0142785595580788,0.0065289973650943,"R - alpha_hat - beta_hat * S&P500, betas on days -280..-31",0.016,0.007,-0.00172144044192123
+"schedule","CAPM","CAPM_w280:treated_only",0.0155209564566687,0.00652690282825314,"R - alpha_hat - beta_hat * S&P500, betas on days -280..-31",0.016,0.007,-0.000479043543331314
+"schedule","CAPM","CAPM:diff",0.0143714096332846,0.0065302095416206,"R - alpha_hat - beta_hat * S&P500",0.016,0.007,-0.00162859036671543
+"schedule","CAPM","CAPM:treated_only",0.0153840924998401,0.00649422271180145,"R - alpha_hat - beta_hat * S&P500",0.016,0.007,-0.000615907500159919
+"schedule","FF3F","FF3F_day0sp:diff",0.0138919420956053,0.00663217765745197,"excess R on FF3, day-0 Mkt-RF = 3-4pm S&P",0.014,0.006,-0.000108057904394712
+"schedule","FF3F","FF3F_day0sp:treated_only",0.0132100328566028,0.00632866751288275,"excess R on FF3, day-0 Mkt-RF = 3-4pm S&P",0.014,0.006,-0.000789967143397187
+"schedule","FF3F","FF3F:diff",0.0143188038120966,0.00664819704721511,"excess R on FF3, full-day factors on day 0",0.014,0.006,0.000318803812096617
+"schedule","FF3F","FF3F:treated_only",0.0140880363895125,0.00632292587177974,"excess R on FF3, full-day factors on day 0",0.014,0.006,8.80363895125139e-05
+"schedule","SC","sc_qp",0.0160761687479945,0.00499809271244654,"synthdid sc objective via quadprog, placebo SE (100 reps)",0.016,0.005,7.61687479945011e-05
+"schedule","SDID","synthdid",0.017689224364768,0.00569973440222043,"synthdid pkg, placebo SE (100 reps)",0.018,0.005,-0.000310775635232009
+"schedule","Gsynth","gsynth force=unit r_cv=3",0.0126828733867337,0.0061577413267251,"gsynth pkg, parametric bootstrap (1000)",0.012,0.006,0.000682873386733656

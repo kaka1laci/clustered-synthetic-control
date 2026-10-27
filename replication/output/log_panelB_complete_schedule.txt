@@ -1,0 +1,37 @@
+gsynth version: 1.2.1 
+[   0.0s] Panel B: 4078 firms x 237 days
+[   0.0s] === schedule connections: N1 = 12, N0 = 4066 ===
+[   0.4s] DID   point estimate 0.0201
+[   3.0s] DID   placebo SE 0.0075
+[  67.3s] SDID  point estimate 0.0099
+[33470.2s] SDID  placebo SE 0.0064
+[34411.4s] SC    0.0074 (placebo SE 0.007)
+Cross-validating ... 
+ r = 0; sigma2 = 0.00252; IC = -5.92570; PC = 0.00251; MSPE = 0.00256
+ r = 1; sigma2 = 0.00206; IC = -6.06675; PC = 0.00209; MSPE = 0.00185
+ r = 2; sigma2 = 0.00199; IC = -6.03774; PC = 0.00206; MSPE = 0.00185
+ r = 3; sigma2 = 0.00194; IC = -6.00284; PC = 0.00205; MSPE = 0.00184*
+ r = 4; sigma2 = 0.00189; IC = -5.96755; PC = 0.00203; MSPE = 0.00187
+ r = 5; sigma2 = 0.00185; IC = -5.92616; PC = 0.00203; MSPE = 0.00181
+
+ r* = 5
+
+Simulating errors .............Bootstrapping ...
+..........[34713.0s] Gsynth 0.0132 (SE 0.0078), r = 5
+[34713.0s] all estimators done
+
+ connection estimator                  variant    est     se paper_est paper_se
+   schedule   Average                     diff 0.0203 0.0089     0.020    0.008
+   schedule       DID                 synthdid 0.0201 0.0075     0.020    0.007
+   schedule        SC                    sc_qp 0.0074 0.0070     0.004    0.007
+   schedule      SDID                 synthdid 0.0099 0.0064     0.009    0.006
+   schedule    Gsynth gsynth force=unit r_cv=5 0.0132 0.0078     0.001    0.008
+    gap
+ 0.0003
+ 0.0001
+ 0.0034
+ 0.0009
+ 0.0122
+
+Saved replication/output/table2_panelB_complete_schedule.csv
+EXIT 0

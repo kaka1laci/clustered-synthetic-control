@@ -1,0 +1,8 @@
+[     1s] clusters r = 10: k = 3, sizes 1562/2099/376
+[   626s] placebo all: 10 / 50
+[  1266s] placebo all: 20 / 50
+[  1948s] placebo all: 30 / 50
+[  2607s] placebo all: 40 / 50
+[  3267s] placebo all: 50 / 50
+[  3267s] saved replication/output/clustersc_perfirm_all_50.rds
+EXIT 0

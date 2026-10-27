@@ -1,0 +1,12 @@
+Warning message:
+package ‘gsynth’ was built under R version 4.5.2 
+gsynth version: 1.4.0 
+force=unit    CV=FALSE r_in=1     -> r=1  ATT=0.0201  (0s)
+force=unit    CV=FALSE r_in=2     -> r=2  ATT=0.0194  (0s)
+force=unit    CV=FALSE r_in=3     -> r=3  ATT=0.0127  (0s)
+force=two-way CV=FALSE r_in=0     -> r=0  ATT=0.0270  (0s)
+force=two-way CV=FALSE r_in=1     -> r=1  ATT=0.0202  (0s)
+force=two-way CV=FALSE r_in=2     -> r=2  ATT=0.0201  (0s)
+force=two-way CV=TRUE  r_in=0:5   -> r=0  ATT=0.0270  (95s)
+force=unit    CV=TRUE  r_in=0:5   -> r=1  ATT=0.0201  (70s)
+EXIT 0

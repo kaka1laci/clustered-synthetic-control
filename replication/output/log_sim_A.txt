@@ -1,0 +1,19 @@
+Panel A | sims 50 | gsynth boots 200 | sigma_e = 1.209 pp
+[  464s] sim 10/50
+[  949s] sim 20/50
+[ 1449s] sim 30/50
+[ 1888s] sim 40/50
+[ 2308s] sim 50/50
+ panel       model all_bias all_mad all_rmse tr_bias tr_mad tr_reject un_bias
+     A SimpleMeans  0.00206   0.056     0.77  -0.028   0.15         1  0.0050
+     A        CAPM -0.00965   0.136     1.93  -0.042   0.32         1 -0.0064
+     A     Correct  0.00183   0.056     0.72  -0.023   0.13         1  0.0043
+     A      Gsynth  0.00054   0.056     0.77  -0.025   0.14         1  0.0031
+ un_mad un_reject
+  0.060     0.066
+  0.139     0.360
+  0.060     0.062
+  0.061     0.068
+mean N treated 50.0 | mean event-day SMB -0.00 | gsynth r chosen: 1x11 2x39
+Saved replication/output/sim_table1_A.rds 
+EXIT 0

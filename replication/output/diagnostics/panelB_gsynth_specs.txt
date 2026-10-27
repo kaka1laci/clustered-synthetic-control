@@ -1,0 +1,9 @@
+force=unit    CV=FALSE r=5     -> r*= 5 ATT=0.0132 (1s)
+force=unit    CV=FALSE r=8     -> r*= 8 ATT=0.0121 (1s)
+force=unit    CV=FALSE r=10    -> r*=10 ATT=0.0093 (1s)
+force=unit    CV=FALSE r=15    -> r*=15 ATT=0.0051 (1s)
+force=two-way CV=FALSE r=5     -> r*= 5 ATT=0.0138 (1s)
+force=unit    CV=TRUE  r=0:10  -> r*= 7 ATT=0.0123 (2s)
+force=two-way CV=TRUE  r=0:10  -> r*= 7 ATT=0.0090 (2s)
+force=unit    CV=TRUE  r=0:20  -> r*= 7 ATT=0.0123 (3s)
+EXIT 0

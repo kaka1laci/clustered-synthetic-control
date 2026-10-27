@@ -1,0 +1,37 @@
+gsynth version: 1.2.1 
+[   0.0s] Panel B: 4080 firms x 237 days
+[   0.0s] === newyork connections: N1 = 34, N0 = 4046 ===
+[   0.4s] DID   point estimate 0.0084
+[   2.9s] DID   placebo SE 0.0046
+[  65.2s] SDID  point estimate 0.0002
+[33267.8s] SDID  placebo SE 0.0037
+[35326.5s] SC    0.0015 (placebo SE 0.0039)
+Cross-validating ... 
+ r = 0; sigma2 = 0.00252; IC = -5.92608; PC = 0.00251; MSPE = 0.00237
+ r = 1; sigma2 = 0.00206; IC = -6.06589; PC = 0.00209; MSPE = 0.00161
+ r = 2; sigma2 = 0.00199; IC = -6.03681; PC = 0.00206; MSPE = 0.00158*
+ r = 3; sigma2 = 0.00194; IC = -6.00191; PC = 0.00205; MSPE = 0.00159
+ r = 4; sigma2 = 0.00189; IC = -5.96662; PC = 0.00203; MSPE = 0.00159
+ r = 5; sigma2 = 0.00185; IC = -5.92549; PC = 0.00203; MSPE = 0.00161
+
+ r* = 2
+
+Simulating errors .............Bootstrapping ...
+..........[35559.2s] Gsynth -0.0033 (SE 0.0042), r = 2
+[35559.2s] all estimators done
+
+ connection estimator                  variant     est     se paper_est
+    newyork   Average                     diff  0.0084 0.0053     0.011
+    newyork       DID                 synthdid  0.0084 0.0046     0.011
+    newyork        SC                    sc_qp  0.0015 0.0039     0.004
+    newyork      SDID                 synthdid  0.0002 0.0037     0.003
+    newyork    Gsynth gsynth force=unit r_cv=2 -0.0033 0.0042     0.001
+ paper_se     gap
+    0.005 -0.0026
+    0.004 -0.0026
+    0.004 -0.0025
+    0.003 -0.0028
+    0.004 -0.0043
+
+Saved replication/output/table2_panelB_allow_missing_newyork.csv
+EXIT 0
