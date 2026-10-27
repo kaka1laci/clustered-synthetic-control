@@ -75,3 +75,14 @@ s2 <- read.csv(file.path(out, "fake_sim2_summary.csv"))
 stopifnot(any(p2$comparison == "jsc1_ff3/pf vs gsynth/pf"), any(p2$comparison == "gsynth/pf vs csc_ff3/pf"),
           sum(g2$Freq) == 10, s2$reps[s2$method == "gsynth/pf"] == 10)
 cat("PASS simulation combine with Gsynth: paired rows, factor-choice table, old parts accepted\n")
+
+# Gsynth rows in the Geithner combine: paired rows and the factor-choice table; old parts accepted
+gs_gei <- list(placebo = prow("gsynth", e + rnorm(10, 0.001, 0.0005)), real = NULL, choices = NULL,
+               gsynth = data.frame(pool = "financial", draw = 1:10, r = rep(c(4L, 5L), 5)))
+saveRDS(gs_gei, file.path(out, "fake_gei_gs.rds"))
+saveRDS(gei, file.path(out, "fake_gei_part.rds"))       # fake_gei.rds itself was overwritten by the combine output above
+stopifnot(system2("Rscript", c("--vanilla", file.path(src, "12_jointsc_geithner.R"), "combine", file.path(out, "fake_gei2"),
+                               file.path(out, "fake_gei_part.rds"), file.path(out, "fake_gei_gs.rds")), stdout = FALSE) == 0)
+pg2 <- read.csv(file.path(out, "fake_gei2_paired.csv")); gg2 <- read.csv(file.path(out, "fake_gei2_gsynth_r.csv"))
+stopifnot(sum(pg2$comparison == "jsc1_ff3/pf vs gsynth/pf") == 2, sum(gg2$Freq) == 10)
+cat("PASS Geithner combine with Gsynth: paired rows, factor-choice table, old parts accepted\n")
