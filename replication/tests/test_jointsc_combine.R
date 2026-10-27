@@ -44,3 +44,20 @@ sg <- pg[pg$comparison == "jsc2_ff3/pf vs csc_ff3/pf", ]; dg <- pg[pg$comparison
 print(rbind(sg, dg), digits = 3)
 stopifnot(nrow(sg) == 2, all(sg$mean_diff == 0), all(is.na(sg$t)), all(is.na(sg$p)), nrow(dg) == 2, all(is.finite(dg$p)))
 cat("PASS Geithner combine: identical-up-to-rounding methods get no t / p\n")
+
+# Review M4. combine must refuse duplicate rows (e.g. the same method from two runs passed together)
+fails_with <- function(script, prefix, rds, pattern) {
+  res <- suppressWarnings(system2("Rscript", c("--vanilla", file.path(src, script), "combine", file.path(out, prefix), rds),
+                                  stdout = TRUE, stderr = TRUE))
+  !is.null(attr(res, "status")) && attr(res, "status") != 0 && any(grepl(pattern, res))
+}
+dup_sim <- sim; dup_sim$metrics <- rbind(met, met[1, ])
+saveRDS(dup_sim, file.path(out, "dup_sim.rds"))
+dup_gei <- gei; dup_gei$placebo <- rbind(gei$placebo, gei$placebo[1, ])
+saveRDS(dup_gei, file.path(out, "dup_gei.rds"))
+dup_real <- gei; dup_real$real <- cbind(connection = "schedule", n_treated = 12, gei$placebo[c(1, 1), -(1:2)])
+saveRDS(dup_real, file.path(out, "dup_real.rds"))
+stopifnot(fails_with("11_jointsc_sim.R", "dup_sim", file.path(out, "dup_sim.rds"), "duplicate"),
+          fails_with("12_jointsc_geithner.R", "dup_gei", file.path(out, "dup_gei.rds"), "duplicate"),
+          fails_with("12_jointsc_geithner.R", "dup_real", file.path(out, "dup_real.rds"), "duplicate"))
+cat("PASS combine stops on duplicate rows (simulation, Geithner placebo, Geithner real)\n")

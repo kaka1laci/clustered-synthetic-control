@@ -53,6 +53,9 @@ if (mode == "combine") {
   cho <- do.call(rbind, lapply(parts, `[[`, "choices"))
   dgp <- do.call(rbind, lapply(parts, `[[`, "dgp"))
   met$key <- paste(met$method, met$version, sep = "/")
+  dup <- duplicated(met[, c("scenario", "rep", "method", "version")])
+  if (any(dup)) stop(sprintf("combine: %d duplicate (scenario, rep, method, version) rows, first: %s", sum(dup),
+                             paste(met[which(dup)[1], c("scenario", "rep", "method", "version")], collapse = " ")))
   summ <- do.call(rbind, lapply(split(met, list(met$scenario, met$key), drop = TRUE), function(d) data.frame(
     scenario = d$scenario[1], method = d$key[1], reps = nrow(d), bias0 = mean(d$err0), rmse0 = sqrt(mean(d$err0^2)),
     post_bias = mean(d$post_bias), w_g1 = mean(d$w_g1), ari = mean(d$ari), runtime_median = median(d$runtime),

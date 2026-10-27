@@ -45,6 +45,13 @@ if (mode == "combine") {
   real <- do.call(rbind, lapply(parts, `[[`, "real"))
   cho <- do.call(rbind, lapply(parts, `[[`, "choices"))
   plac$key <- paste(plac$method, plac$version, sep = "/")
+  no_dup <- function(d, cols, what) {
+    dup <- duplicated(d[, cols])
+    if (any(dup)) stop(sprintf("combine: %d duplicate %s rows, first: %s", sum(dup), what,
+                               paste(d[which(dup)[1], cols], collapse = " ")))
+  }
+  no_dup(plac, c("pool", "draw", "method", "version"), "placebo (pool, draw, method, version)")
+  if (!is.null(real)) no_dup(real, c("connection", "method", "version"), "real (connection, method, version)")
   summ <- do.call(rbind, lapply(split(plac, list(plac$pool, plac$key), drop = TRUE), function(d) data.frame(
     pool = d$pool[1], method = d$key[1], draws = nrow(d), bias = 100 * mean(d$estimate),
     bias_se = 100 * sd(d$estimate) / sqrt(nrow(d)), rmse = 100 * sqrt(mean(d$estimate^2)),
