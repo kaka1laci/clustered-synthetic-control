@@ -61,3 +61,7 @@ Rscript --vanilla replication/tests/test_clustersc.R replication/src
 Rscript --vanilla replication/tests/test_jointsc.R replication/src                                        # needs Gurobi
 Rscript --vanilla replication/tests/test_jointsc_combine.R replication/src <scratch_dir>
 ```
+
+## License
+
+The code is released under the [MIT License](LICENSE). CRSP and other third-party data are not included and keep their own terms.
