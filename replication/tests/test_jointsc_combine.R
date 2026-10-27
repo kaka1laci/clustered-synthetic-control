@@ -61,3 +61,17 @@ stopifnot(fails_with("11_jointsc_sim.R", "dup_sim", file.path(out, "dup_sim.rds"
           fails_with("12_jointsc_geithner.R", "dup_gei", file.path(out, "dup_gei.rds"), "duplicate"),
           fails_with("12_jointsc_geithner.R", "dup_real", file.path(out, "dup_real.rds"), "duplicate"))
 cat("PASS combine stops on duplicate rows (simulation, Geithner placebo, Geithner real)\n")
+
+# Gsynth rows in the simulation combine: compared with the other methods, factor choices tabulated, and a part
+# without a gsynth element (the earlier runs) still combines
+gs_sim <- list(metrics = row("gsynth", "pf", e_csc + rnorm(10, 0.05, 0.02)), choices = NULL, dgp = sim$dgp,
+               gsynth = data.frame(scenario = "weak_clear", rep = 1:10, r = rep(c(2L, 3L), 5)))
+saveRDS(gs_sim, file.path(out, "fake_sim_gs.rds"))
+saveRDS(sim, file.path(out, "fake_sim_part.rds"))       # fake_sim.rds itself was overwritten by the combine output above
+stopifnot(system2("Rscript", c("--vanilla", file.path(src, "11_jointsc_sim.R"), "combine", file.path(out, "fake_sim2"),
+                               file.path(out, "fake_sim_part.rds"), file.path(out, "fake_sim_gs.rds")), stdout = FALSE) == 0)
+p2 <- read.csv(file.path(out, "fake_sim2_paired.csv")); g2 <- read.csv(file.path(out, "fake_sim2_gsynth_r.csv"))
+s2 <- read.csv(file.path(out, "fake_sim2_summary.csv"))
+stopifnot(any(p2$comparison == "jsc1_ff3/pf vs gsynth/pf"), any(p2$comparison == "gsynth/pf vs csc_ff3/pf"),
+          sum(g2$Freq) == 10, s2$reps[s2$method == "gsynth/pf"] == 10)
+cat("PASS simulation combine with Gsynth: paired rows, factor-choice table, old parts accepted\n")
