@@ -218,7 +218,7 @@ Rscript --vanilla replication/src/12_jointsc_geithner.R run panel=replication/ou
 Rscript --vanilla replication/src/12_jointsc_geithner.R run panel=replication/output/geithner_panel.rds panel_type=A \
   ff=replication/data/raw/ff/F-F_Research_Data_Factors_daily.csv out=replication/output/jointsc_geithnerA_p1.rds \
   draws=1-5 pf_draws=10 grid=small do_real=1
-Rscript --vanilla replication/src/12_jointsc_geithner.R combine replication/output/jointsc_geithnerA replication/output/jointsc_geithnerA_p*.rds
+Rscript --vanilla replication/src/12_jointsc_geithner.R combine replication/output/jointsc_geithnerA replication/output/jointsc_geithnerA_p1.rds replication/output/jointsc_geithnerA_p2.rds replication/output/jointsc_geithnerA_p3.rds
 ```
 
 Gsynth (`gsynth_att`): gsynth 1.2.1 with the Table 2 settings (unit fixed effects, r by cross-validation over 0..5),
@@ -228,8 +228,9 @@ Panel A (`panel_type=A`): donors are the 497 firms without any connection; one p
 in the 方案 B runs.
 Result: on Panel A, clustering and joint group selection again do not lower placebo error (no squared-error
 difference against SC is significant), although they shift the cohort-average estimates up by 0.10–0.26 pp/day.
-Gsynth is the best or tied-best method in the simulation, whose data come from a linear factor model, but it is
-indistinguishable from SC on both Geithner panels. The negative placebo bias seen for financial firms in Panel B is
-at least as large on Panel A, where placebo firms and donors are all banks (SC: −0.12 cohort-average, −0.35 per firm), so
-it is not explained by a financial-industry shock. On Panel A every method gives positive effects for all three
+In the simulation, whose data come from a linear factor model, Gsynth is never significantly worse than the methods
+it was paired with and often significantly better, but it is indistinguishable from SC on both Geithner panels. The
+negative placebo bias seen for financial firms in Panel B does not go away on Panel A, where placebo firms and donors
+are all banks (SC: −0.12 cohort-average, not distinguishable from 0 at 30 draws; −0.35 per firm, significant at 10
+draws), so a financial-industry shock is not supported as its explanation, though the evidence cannot rule it out. On Panel A every method gives positive effects for all three
 connections (schedule 1.43–2.06, New York 0.74–1.19 % per day).
