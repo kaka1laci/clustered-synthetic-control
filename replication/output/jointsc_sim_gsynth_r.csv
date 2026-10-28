@@ -1,0 +1,13 @@
+"scenario","r","Freq"
+"none_blur","1",12
+"none_clear","1",25
+"none_blur","2",18
+"none_clear","2",5
+"strong_blur","3",6
+"strong_clear","3",27
+"weak_blur","3",18
+"weak_clear","3",30
+"strong_blur","4",17
+"strong_clear","4",3
+"weak_blur","4",12
+"strong_blur","5",7

@@ -201,3 +201,35 @@ k-means start in the simulation and equals per-firm ClusterSC; on Geithner it mo
 (financial-pool RMSE 1.09 pp/day). On Geithner the 1,000-donor correlation pre-screen alone lowers placebo
 estimates by 0.06–0.37 pp/day; net of it, cohort-average 做法 1 matches SC on the same candidates, and per-firm
 做法 1 shifts estimates up by about 0.23 in both pools.
+
+## Phase 5: Panel A and the Gsynth comparison (`gsynth_fit.R`; summary `output/phase5_summary.md`)
+
+```bash
+Rscript --vanilla replication/tests/test_gsynth_fit.R replication/src replication/output     # Gsynth wrapper = Table 2 Gsynth
+Rscript --vanilla replication/tests/test_phase5_modes.R replication/src replication/output \
+  replication/data/raw/ff/F-F_Research_Data_Factors_daily.csv replication/data/raw/crsp <scratch_dir>
+# Gsynth added to the earlier runs (the data / draws depend only on the seeds), then combined with them
+Rscript --vanilla replication/src/11_jointsc_sim.R run ff=replication/data/raw/ff/F-F_Research_Data_Factors_daily.csv \
+  out=replication/output/jointsc_sim_gsynth.rds methods=gsynth
+Rscript --vanilla replication/src/12_jointsc_geithner.R run panel=replication/output/geithner_panelB_complete.rds \
+  crsp=replication/data/raw/crsp ff=replication/data/raw/ff/F-F_Research_Data_Factors_daily.csv \
+  out=replication/output/jointsc_geithner_gsynth.rds methods=gsynth do_real=1
+# Panel A, all methods (three processes: draws=1-5 do_real=1, draws=6-10, draws=11-30)
+Rscript --vanilla replication/src/12_jointsc_geithner.R run panel=replication/output/geithner_panel.rds panel_type=A \
+  ff=replication/data/raw/ff/F-F_Research_Data_Factors_daily.csv out=replication/output/jointsc_geithnerA_p1.rds \
+  draws=1-5 pf_draws=10 grid=small do_real=1
+Rscript --vanilla replication/src/12_jointsc_geithner.R combine replication/output/jointsc_geithnerA replication/output/jointsc_geithnerA_p*.rds
+```
+
+Gsynth (`gsynth_att`): gsynth 1.2.1 with the Table 2 settings (unit fixed effects, r by cross-validation over 0..5),
+point estimates only; it reproduces the replicated Table 2 Gsynth exactly (Panel A 0.0127, Panel B 0.0132 for
+schedule). It averages per-firm effects, so it is reported as `gsynth/pf` and run on every draw.
+Panel A (`panel_type=A`): donors are the 497 firms without any connection; one placebo pool; methods and parameters as
+in the 方案 B runs.
+Result: on Panel A, clustering and joint group selection again do not lower placebo error (no squared-error
+difference against SC is significant), although they shift the cohort-average estimates up by 0.10–0.26 pp/day.
+Gsynth is the best or tied-best method in the simulation, whose data come from a linear factor model, but it is
+indistinguishable from SC on both Geithner panels. The negative placebo bias seen for financial firms in Panel B is
+at least as large on Panel A, where placebo firms and donors are all banks (SC: −0.12 cohort-average, −0.35 per firm), so
+it is not explained by a financial-industry shock. On Panel A every method gives positive effects for all three
+connections (schedule 1.43–2.06, New York 0.74–1.19 % per day).
