@@ -149,7 +149,7 @@ Thursday-effective rule, which CRSP effective dates reproduce. Later decades nee
 Diff-in-Means 3.25% vs 3.27%; model columns 0.08–0.20 high; Gsynth removes ~75% of the pre-inclusion drift.
 gsynth 1.2.1 note: with `se = FALSE`, `fit$att` is named by the panel's time index, not relative time.
 
-## ClusterSC baseline on Panel B (`clustersc.R`, `09_clustersc_panelB.R`; summary `output/clustersc_panelB_summary.md`)
+## ClusterSC baseline on Panel B (`clustersc.R`, `09_clustersc_panelB.R`, `10_clustersc_perfirm.R`)
 
 ```bash
 Rscript --vanilla replication/tests/test_clustersc.R replication/src     # reproduces ClusterSC's gain on its own DGP
@@ -166,7 +166,7 @@ Per-firm version (`10_clustersc_perfirm.R`, as in the ClusterSC paper): clusteri
 slightly in the right direction (t between −1.5 and −1.8) but never significantly; the financial bias
 persists; per-firm averaging has lower placebo RMSE than cohort-average SC (not a paired comparison).
 
-## 方案 B: joint clustering + SC prototype (`jointsc.R`, `11_jointsc_sim.R`, `12_jointsc_geithner.R`; summary `output/jointsc_summary.md`)
+## 方案 B: joint clustering + SC prototype (`jointsc.R`, `11_jointsc_sim.R`, `12_jointsc_geithner.R`; results `output/jointsc_sim_*.csv`, `output/jointsc_geithner_*.csv`)
 
 ```bash
 Rscript --vanilla replication/tests/test_jointsc.R replication/src      # Gurobi smoke test + 做法 1 / 2 correctness
@@ -202,7 +202,7 @@ k-means start in the simulation and equals per-firm ClusterSC; on Geithner it mo
 estimates by 0.06–0.37 pp/day; net of it, cohort-average 做法 1 matches SC on the same candidates, and per-firm
 做法 1 shifts estimates up by about 0.23 in both pools.
 
-## Phase 5: Panel A and the Gsynth comparison (`gsynth_fit.R`; summary `output/phase5_summary.md`)
+## Phase 5: Panel A and the Gsynth comparison (`gsynth_fit.R`; results `output/jointsc_geithnerA_*.csv` and the Gsynth rows of the 方案 B CSVs)
 
 ```bash
 Rscript --vanilla replication/tests/test_gsynth_fit.R replication/src replication/output     # Gsynth wrapper = Table 2 Gsynth
