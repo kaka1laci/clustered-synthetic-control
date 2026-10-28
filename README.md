@@ -19,10 +19,10 @@ This is research code. The results are prototype evidence, not a published metho
 | Table 2, Panel B | The paper's main finding holds at 5%: SC, SDID and Gsynth are insignificant for every connection, Average and DID are significant | [`table2_panelB_complete_comparison.md`](replication/output/table2_panelB_complete_comparison.md) |
 | Table 1 simulation | Same qualitative pattern; the timing-selection bias is about half the paper's | [`table1_comparison.md`](replication/output/table1_comparison.md) |
 | S&P 500 inclusions, 1980s | Diff-in-Means 3.25% vs the paper's 3.27% | [`sp500_1980s_comparison.md`](replication/output/sp500_1980s_comparison.md) |
-| ClusterSC on Panel B placebos | Clustering never lowers placebo error significantly and is worse in two comparisons; financial placebo cohorts share a bias of about −0.25 pp/day under every estimator | [`clustersc_panelB_summary.md`](replication/output/clustersc_panelB_summary.md) |
-| Joint clustering + SC | Neither approach beats SC or ClusterSC consistently, in a simulation with group-specific factors or on Geithner placebos; pre-screening donors by correlation alone lowers placebo estimates by 0.06–0.37 pp/day | [`jointsc_summary.md`](replication/output/jointsc_summary.md) |
+| ClusterSC on Panel B placebos | Clustering never lowers placebo error significantly and is worse in two comparisons; financial placebo cohorts share a bias of about −0.25 pp/day under every estimator | [`09_clustersc_panelB.R`](replication/src/09_clustersc_panelB.R), [`10_clustersc_perfirm.R`](replication/src/10_clustersc_perfirm.R) |
+| Joint clustering + SC | Neither approach beats SC or ClusterSC consistently, in a simulation with group-specific factors or on Geithner placebos; pre-screening donors by correlation alone lowers placebo estimates by 0.06–0.37 pp/day | [`jointsc_sim_summary.csv`](replication/output/jointsc_sim_summary.csv), [`jointsc_geithner_summary.csv`](replication/output/jointsc_geithner_summary.csv) |
 
-The two clustering summaries are written in Chinese with English technical terms; everything else is in English.
+For the clustering work the result tables are the CSV files in `replication/output/`; written summaries and run logs are not published.
 
 ## Layout
 
@@ -37,7 +37,7 @@ replication/
 │   ├── check_*.R                         diagnostics
 │   └── paper_table{1,2}.csv              the paper's published values
 ├── tests/      correctness tests
-└── output/     result tables (.csv, .md), run logs, diagnostics/
+└── output/     result tables (.csv, .md), diagnostics/
 ```
 
 ## Data (not included)

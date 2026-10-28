@@ -1,9 +1,0 @@
-[     1s] clusters r = 10: k = 3, sizes 1562/2099/376
-[   250s] real treated cohorts done
-[   887s] placebo all: 10 / 50
-[  1602s] placebo all: 20 / 50
-[  2340s] placebo all: 30 / 50
-[  3000s] placebo all: 40 / 50
-[  3599s] placebo all: 50 / 50
-[  3599s] saved replication/output/clustersc_perfirm_all_0.rds
-EXIT 0
