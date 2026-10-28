@@ -130,6 +130,8 @@ scen <- if (opt$scenarios == "all") SCEN$name else strsplit(opt$scenarios, ",")[
 stopifnot(all(scen %in% SCEN$name))
 rr <- as.integer(strsplit(opt$reps, "-")[[1]]); reps <- rr[1]:rr[length(rr)]
 pf_reps <- as.integer(opt$pf_reps); seed <- as.integer(opt$seed)
+if (all(methods == "jsc2") && min(reps) > pf_reps)
+  stop("no method selected produces rows: jsc2 is per-firm only and no rep <= pf_reps = ", pf_reps)
 jsc2_c <- as.numeric(strsplit(opt$jsc2_c, ",")[[1]])
 m_grid <- if (opt$grid == "full") c(20, 50, 100) else 50
 c_grid <- if (opt$grid == "full") c(0, 0.1, 1, 10) else c(0.1, 1, 10)

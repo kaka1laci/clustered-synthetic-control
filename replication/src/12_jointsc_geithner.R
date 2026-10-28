@@ -116,6 +116,10 @@ methods <- if (opt$methods == "all") METHOD_NAMES else strsplit(opt$methods, ","
 if (!all(methods %in% METHOD_NAMES)) stop("unknown method(s): ", paste(setdiff(methods, METHOD_NAMES), collapse = ", "),
                                           " (choose from ", paste(METHOD_NAMES, collapse = ", "), ")")
 want <- function(m) m %in% methods && (do_jsc1 || !grepl("^jsc1", m))
+sel <- Filter(want, METHOD_NAMES)
+if (!length(sel) || (all(sel %in% c("csc_ff3_cand", "jsc2")) && opt$do_real != "1" && !any(draws <= pf_draws)))
+  stop("no method selected produces rows (methods=", opt$methods, ", jsc1=", opt$jsc1, ", pf_draws=", pf_draws,
+       "): csc_ff3_cand and jsc2 run on per-firm draws only, and jsc1=0 drops jsc1_*")
 m_grid <- if (opt$grid == "full") c(20, 50, 100) else 50
 c_grid <- if (opt$grid == "full") c(0, 0.1, 1, 10) else c(0.1, 1, 10)
 p1 <- list(TimeLimit = as.numeric(opt$tl1), MIPGap = as.numeric(opt$gap))
@@ -247,7 +251,7 @@ if (opt$do_real == "1") {
     in_sample <- if (is.null(p$sample)) rep(TRUE, nrow(Y)) else p$sample[[cn]]   # Panel A has no per-connection sample
     tr <- which(p$treat[[cn]] == 1 & in_sample)
     r <- estimate_cohort(tr, ctrl, TRUE)
-    real <- rbind(real, cbind(connection = cn, n_treated = length(tr), r$rows))
+    if (!is.null(r$rows)) real <- rbind(real, cbind(connection = cn, n_treated = length(tr), r$rows))
     if (!is.null(r$choices)) choices <- rbind(choices, cbind(pool = paste0("real_", cn), draw = 0L, r$choices))
     if (!is.null(r$gsynth_r)) gsr <- rbind(gsr, data.frame(pool = paste0("real_", cn), draw = 0L, r = r$gsynth_r))
     log_step(sprintf("real %s (%d firms): %s", cn, length(tr), paste(sprintf("%s/%s %.0fs", r$rows$method, r$rows$version, r$rows$runtime), collapse = ", ")))
@@ -259,7 +263,7 @@ for (pool in pool_names) for (b in draws) {
   set.seed(seed + match(pool, names(pools)) * 100000 + b)            # same draws as 10_clustersc_perfirm.R
   pseudo <- sample(pools[[pool]], N1)
   r <- estimate_cohort(pseudo, setdiff(ctrl, pseudo), b <= pf_draws)
-  plac <- rbind(plac, cbind(pool = pool, draw = b, r$rows))
+  if (!is.null(r$rows)) plac <- rbind(plac, cbind(pool = pool, draw = b, r$rows))   # per-firm-only methods skip later draws
   if (!is.null(r$choices)) choices <- rbind(choices, cbind(pool = pool, draw = b, r$choices))
   if (!is.null(r$gsynth_r)) gsr <- rbind(gsr, data.frame(pool = pool, draw = b, r = r$gsynth_r))
   log_step(sprintf("placebo %s draw %d: %s", pool, b, paste(sprintf("%s/%s %.0fs", r$rows$method, r$rows$version, r$rows$runtime), collapse = ", ")))

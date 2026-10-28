@@ -77,3 +77,21 @@ if (part %in% c("geithner", "all")) {
   stopifnot(r$status != 0, any(grepl("unknown method", r$out)))
   cat("PASS Geithner: an unknown method name stops the run\n")
 }
+
+# Review: a valid method list that cannot produce any row (per-firm-only methods with no per-firm draws, or 做法 1
+# switched off) must stop instead of saving a malformed rds that combine later rejects with an unrelated error
+if (part %in% c("sim", "all")) {
+  r <- run("11_jointsc_sim.R", "run", paste0("ff=", ff), paste0("out=", file.path(scr, "sim_empty.rds")),
+           "scenarios=weak_blur", "reps=1-1", "pf_reps=0", "methods=jsc2")
+  stopifnot(r$status != 0, any(grepl("no method selected", r$out)))
+  cat("PASS sim: a method list that produces no rows stops the run\n")
+}
+if (part %in% c("geithner", "all")) {
+  pa_rds <- file.path(outd, "geithner_panel.rds")
+  r <- run("12_jointsc_geithner.R", "run", paste0("panel=", pa_rds), "panel_type=A", paste0("ff=", ff),
+           paste0("out=", file.path(scr, "geiA_empty.rds")), "draws=1-1", "pf_draws=0", "do_real=0", "methods=csc_ff3_cand")
+  r2 <- run("12_jointsc_geithner.R", "run", paste0("panel=", pa_rds), "panel_type=A", paste0("ff=", ff),
+            paste0("out=", file.path(scr, "geiA_empty2.rds")), "draws=1-1", "do_real=0", "methods=jsc1_ff3", "jsc1=0")
+  stopifnot(r$status != 0, any(grepl("no method selected", r$out)), r2$status != 0, any(grepl("no method selected", r2$out)))
+  cat("PASS Geithner: a method list that produces no rows stops the run\n")
+}
