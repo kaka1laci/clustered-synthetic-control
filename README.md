@@ -21,6 +21,7 @@ This is research code. The results are prototype evidence, not a published metho
 | S&P 500 inclusions, 1980s | Diff-in-Means 3.25% vs the paper's 3.27% | [`sp500_1980s_comparison.md`](replication/output/sp500_1980s_comparison.md) |
 | ClusterSC on Panel B placebos | Clustering never lowers placebo error significantly and is worse in two comparisons; financial placebo cohorts share a bias of about −0.25 pp/day under every estimator | [`09_clustersc_panelB.R`](replication/src/09_clustersc_panelB.R), [`10_clustersc_perfirm.R`](replication/src/10_clustersc_perfirm.R) |
 | Joint clustering + SC | Neither approach beats SC or ClusterSC consistently, in a simulation with group-specific factors or on Geithner placebos; pre-screening donors by correlation alone lowers placebo estimates by 0.06–0.37 pp/day | [`jointsc_sim_summary.csv`](replication/output/jointsc_sim_summary.csv), [`jointsc_geithner_summary.csv`](replication/output/jointsc_geithner_summary.csv) |
+| Panel A and Gsynth (Phase 5) | With bank-only donors (Panel A), clustering and joint selection again do not lower placebo error; Gsynth is never significantly worse than the paired methods in the simulation but matches SC on both Geithner panels; the financial-firm placebo bias does not go away on Panel A | [`jointsc_geithnerA_summary.csv`](replication/output/jointsc_geithnerA_summary.csv), [`gsynth_fit.R`](replication/src/gsynth_fit.R) |
 
 For the clustering work the result tables are the CSV files in `replication/output/`; written summaries and run logs are not published.
 
@@ -32,8 +33,8 @@ replication/
 ├── src/        R scripts
 │   ├── 01–08   replication: Geithner panels, Table 2 estimators, Table 1 simulation, S&P 500
 │   ├── 09–10   ClusterSC baseline (cohort-average and per-firm targets)
-│   ├── 11–12   joint clustering + SC: simulation and Geithner Panel B
-│   ├── sc_qp.R, clustersc.R, jointsc.R   SC solver, ClusterSC, joint clustering + SC
+│   ├── 11–12   joint clustering + SC and Gsynth: simulation, Geithner Panels A and B
+│   ├── sc_qp.R, clustersc.R, jointsc.R, gsynth_fit.R   SC solver, ClusterSC, joint clustering + SC, Gsynth
 │   ├── check_*.R                         diagnostics
 │   └── paper_table{1,2}.csv              the paper's published values
 ├── tests/      correctness tests
